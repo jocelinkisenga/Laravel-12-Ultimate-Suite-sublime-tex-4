@@ -1,0 +1,22 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- JOBS & DISPATCHING ---
+        { "trigger": "dispatch\tHelper", "contents": "dispatch(new ${1:JobName}(${2:\\$data}));", "kind": "function", "details": "Envoie un Job à la file d'attente" },
+        { "trigger": "dispatch_sync\tHelper", "contents": "dispatch_sync(new ${1:JobName}(${2:\\$data}));", "kind": "function", "details": "Exécute un Job immédiatement" },
+        { "trigger": "Job::dispatch\tLaravel", "contents": "${1:JobName}::dispatch(${2:\\$data});", "kind": "function", "details": "Syntaxe statique de dispatch" },
+        { "trigger": "Job::dispatchIf\tLaravel", "contents": "${1:JobName}::dispatchIf(${2:condition}, ${3:\\$data});", "kind": "function" },
+
+        // --- CHAINES & BATCHES ---
+        { "trigger": "Bus::chain\tQueue", "contents": "Bus::chain([\n\tnew ${1:FirstJob},\n\tnew ${2:SecondJob},\n])->dispatch();", "kind": "snippet", "details": "Exécute des jobs en série" },
+        { "trigger": "Bus::batch\tQueue", "contents": "Bus::batch([\n\tnew ${1:Job},\n])->then(function (Batch \\$batch) {\n\t$0\n})->dispatch();", "kind": "snippet", "details": "Exécute des jobs en parallèle (Batch)" },
+
+        // --- EVENTS & LISTENERS ---
+        { "trigger": "event\tHelper", "contents": "event(new ${1:EventName}(${2:\\$data}));", "kind": "function", "details": "Déclenche un événement" },
+        { "trigger": "Event::listen\tLaravel", "contents": "Event::listen(${1:EventName}::class, ${2:ListenerName}::class);", "kind": "function" },
+
+        // --- SCHEDULING (Console/Kernel) ---
+        { "trigger": "schedule-command\tTask", "contents": "\\$schedule->command('${1:emails:send}')->${2:daily}();", "kind": "snippet", "details": "Planifie une commande Artisan" },
+        { "trigger": "schedule-job\tTask", "contents": "\\$schedule->job(new ${1:JobName})->${2:everyFiveMinutes}();", "kind": "snippet", "details": "Planifie un Job" }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "install": "README.md",
+    "releases": [
+        {
+            "version": "1.0.0",
+            "title": "Bienvenue dans Laravel 12 Ultimate Suite ! 🚀",
+            "description": "Merci d'avoir installé l'extension. Votre Sublime Text est désormais dopé à l'IA et au TALL Stack.\n\nAstuces rapides :\n• Tapez 'AI::' pour le nouveau SDK.\n• Utilisez 'f-' pour les formulaires Filament.\n• Les directives Blade commencent par '@'.\n\nConsultez le README pour la liste complète des raccourcis !"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- PEST (Syntaxe Fluide) ---
+        { "trigger": "it\tPest", "contents": "it('${1:does something}', function () {\n\t$0\n});", "kind": "snippet", "details": "Test Pest (it)" },
+        { "trigger": "test\tPest", "contents": "test('${1:description}', function () {\n\t$0\n});", "kind": "snippet", "details": "Test Pest (test)" },
+        { "trigger": "expect\tPest", "contents": "expect(${1:\\$value})->${2:toBe}(${3:expected});", "kind": "function", "details": "Expectation Pest" },
+        { "trigger": "beforeEach\tPest", "contents": "beforeEach(function () {\n\t$0\n});", "kind": "function" },
+        { "trigger": "arch\tPest", "contents": "test('arch')\n\t->expect('App\\\\${1:Models}')\n\t->toOnlyBeUsedIn('App\\\\${2:Repositories}');", "kind": "snippet", "details": "Architecture Testing" },
+
+        // --- PHPUNIT (Syntaxe Classique) ---
+        { "trigger": "test_func\tPHPUnit", "contents": "public function test_${1:something}_does_${2:thing}(): void\n{\n\t$0\n}", "kind": "snippet", "details": "Méthode de test classique" },
+        { "trigger": "assertTrue\tAssert", "contents": "\\$this->assertTrue(${1:condition});", "kind": "function" },
+        { "trigger": "assertEquals\tAssert", "contents": "\\$this->assertEquals(${1:expected}, ${2:actual});", "kind": "function" },
+
+        // --- LARAVEL SPECIFIC ASSERTS ---
+        { "trigger": "assertDatabaseHas\tLaravel", "contents": "\\$this->assertDatabaseHas('${1:table}', [\n\t'${2:column}' => ${3:value},\n]);", "kind": "function", "details": "Vérifie la base de données" },
+        { "trigger": "get_json\tTest", "contents": "\\$response = \\$this->getJson('${1:/api/route}');\n\n\\$response->assertStatus(${2:200});", "kind": "snippet", "details": "Test d'API JSON" },
+        { "trigger": "actingAs\tAuth", "contents": "\\$this->actingAs(${1:\\$user})", "kind": "function", "details": "Simule un utilisateur connecté" }
+    ]
+}

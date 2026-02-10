@@ -1,0 +1,31 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- REDIRECTION ---
+        { 
+            "trigger": "soc-redirect\tSocialite", 
+            "contents": "return Socialite::driver('${1:github}')->redirect();", 
+            "kind": "function", 
+            "details": "Redirige vers le fournisseur OAuth" 
+        },
+
+        // --- CALLBACK ---
+        { 
+            "trigger": "soc-user\tSocialite", 
+            "contents": "\\$user = Socialite::driver('${1:github}')->user();\n\n$0", 
+            "kind": "snippet", 
+            "details": "Récupère les infos de l'utilisateur après login" 
+        },
+
+        // --- AUTHENTIFICATION SANS STATE (Stateless) ---
+        { 
+            "trigger": "soc-stateless\tSocialite", 
+            "contents": "Socialite::driver('${1:github}')->stateless()->user();", 
+            "kind": "function", 
+            "details": "Utile pour les APIs / JWT" 
+        },
+
+        // --- DONNÉES UTILISATEUR TYPE ---
+        { "trigger": "soc-data\tSocialite", "contents": "// \\$user->getId();\n// \\$user->getNickname();\n// \\$user->getName();\n// \\$user->getEmail();\n// \\$user->getAvatar();", "kind": "snippet", "details": "Méthodes disponibles sur l'objet User" }
+    ]
+}

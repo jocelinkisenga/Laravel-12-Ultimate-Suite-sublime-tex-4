@@ -1,0 +1,22 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- ABONNEMENTS (Subscriptions) ---
+        { "trigger": "cash-sub\tCashier", "contents": "\\$user->newSubscription('${1:default}', '${2:price_id}')->create(${3:\\$paymentMethod});", "kind": "snippet", "details": "Créer un nouvel abonnement" },
+        { "trigger": "cash-subscribed\tCashier", "contents": "if (\\$user->subscribed('${1:default}')) {\n\t$0\n}", "kind": "snippet", "details": "Vérifie si l'utilisateur est abonné" },
+        { "trigger": "cash-on-plan\tCashier", "contents": "\\$user->subscribedToProduct('${1:prod_id}', '${2:default}')", "kind": "function", "details": "Vérifie le plan spécifique" },
+        { "trigger": "cash-cancel\tCashier", "contents": "\\$user->subscription('${1:default}')->cancel();", "kind": "function", "details": "Annule l'abonnement" },
+        { "trigger": "cash-resume\tCashier", "contents": "\\$user->subscription('${1:default}')->resume();", "kind": "function", "details": "Reprendre un abonnement annulé" },
+
+        // --- PAIEMENTS UNIQUES (Single Charges) ---
+        { "trigger": "cash-charge\tCashier", "contents": "\\$user->charge(${1:amount} * 100, ${2:\\$paymentMethodId});", "kind": "function", "details": "Paiement unique (montant en centimes)" },
+        { "trigger": "cash-invoice\tCashier", "contents": "\\$user->invoice();", "kind": "function", "details": "Génère une facture immédiate" },
+
+        // --- FACTURES (Invoices) ---
+        { "trigger": "cash-download\tCashier", "contents": "return \\$user->downloadInvoice(${1:\\$invoiceId}, [\n\t'vendor' => '${2:Ma Société}',\n\t'product' => '${3:Abonnement Pro}',\n]);", "kind": "snippet", "details": "Télécharger une facture PDF" },
+        
+        // --- ÉTAT DE L'ABONNEMENT ---
+        { "trigger": "cash-on-grace\tCashier", "contents": "\\$user->subscription('${1:default}')->onGracePeriod()", "kind": "function", "details": "Vérifie si en période de grâce" },
+        { "trigger": "cash-canceled\tCashier", "contents": "\\$user->subscription('${1:default}')->canceled()", "kind": "function", "details": "Vérifie si l'abonnement est résilié" }
+    ]
+}

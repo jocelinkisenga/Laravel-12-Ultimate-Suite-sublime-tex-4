@@ -1,0 +1,44 @@
+{
+"scope": "text.plain, text.html, text.html.basic, source.php.blade",
+    "completions": [
+        { "trigger": "@if\tBlade", "contents": "@if (${1:condition})\n\t$0\n@endif" },
+        { "trigger": "@else\tBlade", "contents": "@else" },
+        { "trigger": "@elseif\tBlade", "contents": "@elseif (${1:condition})" },
+        { "trigger": "@foreach\tBlade", "contents": "@foreach (\\$${1:items} as \\$${2:item})\n\t$0\n@endforeach" },
+        { "trigger": "@forelse\tBlade", "contents": "@forelse (\\$${1:items} as \\$${2:item})\n\t$0\n@empty\n\t$3\n@endforelse" },
+        { "trigger": "@while\tBlade", "contents": "@while (${1:condition})\n\t$0\n@endwhile" },
+        { "trigger": "@unless\tBlade", "contents": "@unless (${1:condition})\n\t$0\n@endunless" },
+
+        // --- LAYOUTS & SECTIONS ---
+        { "trigger": "@extends\tBlade", "contents": "@extends('${1:layouts.app}')" },
+        { "trigger": "@section\tBlade", "contents": "@section('${1:name}')\n\t$0\n@endsection" },
+        { "trigger": "@yield\tBlade", "contents": "@yield('${1:content}')" },
+        { "trigger": "@include\tBlade", "contents": "@include('${1:view.name}', ['${2:data}' => ${3:value}])" },
+        { "trigger": "@stack\tBlade", "contents": "@stack('${1:scripts}')" },
+        { "trigger": "@push\tBlade", "contents": "@push('${1:scripts}')\n\t$0\n@endpush" },
+
+        // --- AUTH & CSRF ---
+        { "trigger": "@auth\tBlade", "contents": "@auth\n\t$0\n@endauth" },
+        { "trigger": "@guest\tBlade", "contents": "@guest\n\t$0\n@endguest" },
+        { "trigger": "@csrf\tBlade", "contents": "@csrf" },
+        { "trigger": "@method\tBlade", "contents": "@method('${1:PUT}')" },
+
+        // --- FORMULAIRES & ERREURS ---
+        { "trigger": "@error\tBlade", "contents": "@error('${1:field}')\n\t<span class=\"invalid-feedback\">{{ \\$message }}</span>\n@enderror" },
+        { "trigger": "@class\tBlade", "contents": "@class(['${1:font-bold}' => ${2:true}])" },
+        { "trigger": "old\tLaravel", "contents": "old('${1:field}')" },
+
+        // --- DIVERS ---
+        { "trigger": "{{--\tBlade", "contents": "{{-- $0 --}}" },
+        { "trigger": "@vite\tBlade", "contents": "@vite(['resources/css/app.css', 'resources/js/app.js'])" },
+        { "trigger": "@livewire\tBlade", "contents": "@livewire('${1:component-name}')" },
+        { "trigger": "@php\tBlade", "contents": "@php\n\t$0\n@endphp" },
+
+        // À insérer dans le tableau "completions" de ton fichier Blade
+{ "trigger": "wire:model\tLivewire", "contents": "wire:model${1:.live}=\"${2:property}\"", "kind": "navigation" },
+{ "trigger": "wire:click\tLivewire", "contents": "wire:click=\"${1:method}\"", "kind": "navigation" },
+{ "trigger": "wire:submit\tLivewire", "contents": "wire:submit=\"${1:save}\"", "kind": "navigation" },
+{ "trigger": "wire:navigate\tLivewire", "contents": "wire:navigate", "kind": "navigation", "details": "Active le mode SPA" },
+{ "trigger": "@persist\tLivewire", "contents": "@persist('${1:player}')\n\t$0\n@endpersist", "kind": "snippet", "details": "Garde l'état entre les pages" }
+    ]
+}

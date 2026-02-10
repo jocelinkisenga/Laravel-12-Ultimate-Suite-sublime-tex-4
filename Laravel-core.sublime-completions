@@ -1,0 +1,78 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- ROUTING (Doc: Basics > Routing) ---
+        {
+            "trigger": "Route::get\tLaravel",
+            "contents": "Route::get('${1:/}', [${2:Controller}::class, '${3:index}']);",
+            "kind": "function",
+            "details": "Définit une route GET"
+        },
+        {
+            "trigger": "Route::post\tLaravel",
+            "contents": "Route::post('${1:/}', [${2:Controller}::class, '${3:store}']);",
+            "kind": "function",
+            "details": "Définit une route POST"
+        },
+        {
+            "trigger": "Route::resource\tLaravel",
+            "contents": "Route::resource('${1:resource}', ${2:Controller}::class);",
+            "kind": "function",
+            "details": "Génère les routes CRUD complètes"
+        },
+
+        // --- ELOQUENT (Doc: Eloquent > Getting Started) ---
+        {
+            "trigger": "Model::find\tEloquent",
+            "contents": "${1:Model}::findOrFail(${2:\\$id});",
+            "kind": "snippet",
+            "details": "Trouve un record ou renvoie 404"
+        },
+        {
+            "trigger": "Model::create\tEloquent",
+            "contents": "${1:Model}::create([\n\t'${2:field}' => ${3:\\$value},\n]);",
+            "kind": "snippet",
+            "details": "Insertion de masse (Mass Assignment)"
+        },
+        {
+            "trigger": "belongsTo\tRelationship",
+            "contents": "public function ${1:user}(): BelongsTo\n{\n\treturn \\$this->belongsTo(${2:User}::class);\n}",
+            "kind": "function",
+            "details": "Relation inverse (1:1 ou 1:N)"
+        },
+
+        // --- MIGRATIONS (Doc: Database > Migrations) ---
+        {
+            "trigger": "table-string\tMigration",
+            "contents": "\\$table->string('${1:column}')->${2:nullable}();",
+            "kind": "snippet",
+            "details": "Colonne VARCHAR"
+        },
+        {
+            "trigger": "table-foreign\tMigration",
+            "contents": "\\$table->foreignId('${1:user}_id')->constrained()->cascadeOnDelete();",
+            "kind": "snippet",
+            "details": "Clé étrangère moderne"
+        },
+
+        // --- HELPERS & VALIDATION (Doc: Basics > Validation) ---
+        {
+            "trigger": "validate\tLaravel",
+            "contents": "\\$request->validate([\n\t'${1:field}' => ['required', '${2:string}'],\n]);",
+            "kind": "function",
+            "details": "Validation des données entrantes"
+        },
+        {
+            "trigger": "to_route\tHelper",
+            "contents": "return to_route('${1:name}');",
+            "kind": "function",
+            "details": "Redirection vers une route nommée"
+        },
+        {
+            "trigger": "dd\tDebug",
+            "contents": "dd(${1:\\$variable});",
+            "kind": "keyword",
+            "details": "Die and Dump (Debug)"
+        }
+    ]
+}

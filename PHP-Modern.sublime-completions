@@ -1,0 +1,24 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- STRING FUNCTIONS (PHP 8.0+) ---
+        { "trigger": "str_contains", "contents": "str_contains(${1:\\$haystack}, ${2:\\$needle})", "kind": "function", "details": "Vérifie si une chaîne contient une sous-chaîne" },
+        { "trigger": "str_starts_with", "contents": "str_starts_with(${1:\\$haystack}, ${2:\\$needle})", "kind": "function", "details": "Vérifie si commence par..." },
+        { "trigger": "str_ends_with", "contents": "str_ends_with(${1:\\$haystack}, ${2:\\$needle})", "kind": "function", "details": "Vérifie si finit par..." },
+
+        // --- CONSTRUCTEURS & CLASSES (PHP 8.0/8.1) ---
+        { "trigger": "p-construct\tPHP", "contents": "public function __construct(\n\tprotected ${1:Type} ${2:\\$name},\n) { $0 }", "kind": "snippet", "details": "Constructor Property Promotion" },
+        { "trigger": "readonly", "contents": "public readonly ${1:string} ${2:\\$name};", "kind": "keyword", "details": "Propriété en lecture seule" },
+
+        // --- ENUMS (PHP 8.1+) ---
+        { "trigger": "enum\tPHP", "contents": "enum ${1:Status}: ${2:string}\n{\n\tcase ${3:DRAFT} = '${4:draft}';\n}", "kind": "snippet", "details": "Déclaration d'Enum" },
+
+        // --- NEW IN PHP 8.3/8.4 ---
+        { "trigger": "json_validate", "contents": "json_validate(${1:\\$json})", "kind": "function", "details": "Vérifie si le JSON est valide (8.3)" },
+        { "trigger": "array_find", "contents": "array_find(${1:\\$array}, fn(\\$value) => ${2:\\$value === 'foo'})", "kind": "function", "details": "Trouve le 1er élément (8.4)" },
+        { "trigger": "mb_trim", "contents": "mb_trim(${1:\\$string})", "kind": "function", "details": "Trim multi-octets (8.4)" },
+
+        // --- DIVERS ---
+        { "trigger": "match\tPHP", "contents": "match (${1:\\$value}) {\n\t${2:condition} => ${3:result},\n\tdefault => ${4:fallback},\n};", "kind": "snippet", "details": "Expression Match (alternative switch)" }
+    ]
+}

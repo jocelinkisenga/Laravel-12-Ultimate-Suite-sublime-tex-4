@@ -1,0 +1,31 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- BROADCASTING EVENTS ---
+        { 
+            "trigger": "rev-event\tReverb", 
+            "contents": "class ${1:OrderShipped} implements ShouldBroadcast\n{\n\tuse Dispatchable, InteractsWithSockets, SerializesModels;\n\n\tpublic function broadcastOn(): array\n\t{\n\t\treturn [new PrivateChannel('${2:orders}.'.\\$this->${3:order}->id)];\n\t}\n}", 
+            "kind": "snippet", 
+            "details": "Créer un événement temps réel" 
+        },
+
+        // --- CHANNELS (routes/channels.php) ---
+        { 
+            "trigger": "rev-channel\tReverb", 
+            "contents": "Broadcast::channel('${1:orders}.{id}', function (User \\$user, int \\$id) {\n\treturn (int) \\$user->id === (int) \\$id;\n});", 
+            "kind": "snippet", 
+            "details": "Définir une autorisation de canal" 
+        },
+
+        // --- CLIENT SIDE (Echo + Reverb) ---
+        { 
+            "trigger": "echo-listen\tJS", 
+            "contents": "Echo.private('${1:orders}.' + ${2:orderId})\n\t.listen('${3:OrderShipped}', (e) => {\n\t\tconsole.log(e.${4:order});\n\t});", 
+            "kind": "snippet", 
+            "details": "Écouter un événement en JS" 
+        },
+
+        // --- BROADCAST HELPERS ---
+        { "trigger": "broadcast\tHelper", "contents": "broadcast(new ${1:EventName}(${2:\\$data}))->toOthers();", "kind": "function", "details": "Diffuser sauf à l'expéditeur" }
+    ]
+}

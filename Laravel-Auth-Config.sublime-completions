@@ -1,0 +1,19 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- AUTH & GATES ---
+        { "trigger": "Auth::check\tAuth", "contents": "Auth::check()", "kind": "function", "details": "Vérifie si l'utilisateur est connecté" },
+        { "trigger": "Auth::id\tAuth", "contents": "Auth::id()", "kind": "function", "details": "Récupère l'ID de l'utilisateur actuel" },
+        { "trigger": "Auth::logout\tAuth", "contents": "Auth::logout();\n\\$request->session()->invalidate();\n\\$request->session()->regenerateToken();", "kind": "snippet", "details": "Déconnexion complète sécurisée" },
+        { "trigger": "Gate::inspect\tAuth", "contents": "Gate::inspect('${1:update}', ${2:\\$post})", "kind": "function", "details": "Récupère la réponse détaillée de la Gate" },
+
+        // --- CONFIG & ENV ---
+        { "trigger": "config\tHelper", "contents": "config('${1:app.name}', '${2:default}')", "kind": "function", "details": "Récupère une valeur de configuration" },
+        { "trigger": "config_set\tHelper", "contents": "config(['${1:app.timezone}' => '${2:UTC}']);", "kind": "function", "details": "Définit une valeur de config à la volée" },
+        { "trigger": "env\tHelper", "contents": "env('${1:APP_KEY}', '${2:default}')", "kind": "function", "details": "Récupère une variable du fichier .env" },
+
+        // --- APP & CONTAINER ---
+        { "trigger": "app_make\tContainer", "contents": "app()->make(${1:Class}::class);", "kind": "function", "details": "Résout une instance du container" },
+        { "trigger": "app_bind\tContainer", "contents": "app()->bind(${1:Interface}::class, ${2:Implementation}::class);", "kind": "function", "details": "Enregistre un lien dans le container" }
+    ]
+}

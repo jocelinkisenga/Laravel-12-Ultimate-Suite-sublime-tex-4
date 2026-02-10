@@ -1,0 +1,10 @@
+{
+    "scope": "source.php",
+    "completions": [
+        { "trigger": "collect\tCollection", "contents": "collect([$1])", "kind": "function" },
+        { "trigger": "col-map\tCollection", "contents": "map(function (${1:\\$item}) {\n\treturn ${2:\\$item};\n})", "kind": "snippet" },
+        { "trigger": "col-filter\tCollection", "contents": "filter(function (${1:\\$item}) {\n\treturn ${2:condition};\n})", "kind": "snippet" },
+        { "trigger": "col-pluck\tCollection", "contents": "pluck('${1:value}', '${2:key}')", "kind": "function" },
+        { "trigger": "col-first\tCollection", "contents": "first(fn (${1:\\$item}) => ${2:condition})", "kind": "function" }
+    ]
+}

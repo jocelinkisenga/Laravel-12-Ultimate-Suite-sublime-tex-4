@@ -1,0 +1,22 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- QUERY BUILDER (DB) ---
+        { "trigger": "DB::table\tLaravel", "contents": "DB::table('${1:users}')->where('${2:id}', ${3:\\$id})->get();", "kind": "function", "details": "Requête SQL fluide" },
+        { "trigger": "DB::transaction\tLaravel", "contents": "DB::transaction(function () {\n\t$0\n});", "kind": "snippet", "details": "Transaction SQL sécurisée" },
+        { "trigger": "where\tQuery", "contents": "where('${1:column}', ${2:operator}, ${3:\\$value})", "kind": "function" },
+        { "trigger": "whereIn\tQuery", "contents": "whereIn('${1:column}', [${2:values}])", "kind": "function" },
+        { "trigger": "join\tQuery", "contents": "join('${1:table}', '${2:first}', '${3:operator}', '${4:second}')", "kind": "function" },
+        { "trigger": "orderBy\tQuery", "contents": "orderBy('${1:created_at}', '${2:desc}')", "kind": "function" },
+
+        // --- AUTHENTICATION & GATES ---
+        { "trigger": "Auth::attempt\tAuth", "contents": "Auth::attempt(['email' => ${1:\\$email}, 'password' => ${2:\\$password}]);", "kind": "function", "details": "Tentative de connexion" },
+        { "trigger": "Gate::define\tAuth", "contents": "Gate::define('${1:update-post}', function (User \\$user, ${2:Post} \\$post) {\n\treturn \\$user->id === \\$post->user_id;\n});", "kind": "snippet", "details": "Définition de permission" },
+        { "trigger": "Gate::allows\tAuth", "contents": "Gate::allows('${1:permission}', ${2:\\$model})", "kind": "function" },
+
+        // --- STORAGE & FILES (Storage::) ---
+        { "trigger": "Storage::put\tFile", "contents": "Storage::disk('${1:public}')->put('${2:path/file.jpg}', ${3:\\$content});", "kind": "function", "details": "Sauvegarder un fichier" },
+        { "trigger": "Storage::url\tFile", "contents": "Storage::url('${1:path/file.jpg}');", "kind": "function", "details": "Récupérer l'URL publique" },
+        { "trigger": "Storage::download\tFile", "contents": "return Storage::download('${1:file.pdf}');", "kind": "function" }
+    ]
+}

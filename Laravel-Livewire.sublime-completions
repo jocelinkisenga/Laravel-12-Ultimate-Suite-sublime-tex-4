@@ -1,0 +1,19 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- PROPRIÉTÉS & MÉTHODES DE BASE ---
+        { "trigger": "lw-render\tLivewire", "contents": "public function render()\n{\n\treturn view('livewire.${1:component-name}');\n}", "kind": "function", "details": "Méthode de rendu obligatoire" },
+        { "trigger": "lw-mount\tLivewire", "contents": "public function mount(${1:\\$id})\n{\n\t$0\n}", "kind": "function", "details": "Constructeur Livewire" },
+        
+        // --- ACTIONS & RÉPONSES ---
+        { "trigger": "lw-dispatch\tLivewire", "contents": "\\$this->dispatch('${1:event-name}', ${2:data});", "kind": "function", "details": "Émettre un événement browser" },
+        { "trigger": "lw-js\tLivewire", "contents": "\\$this->js('${1:alert(\"Hello\")};');", "kind": "function", "details": "Exécuter du JS depuis PHP" },
+        { "trigger": "lw-redirect\tLivewire", "contents": "return \\$this->redirect(route('${1:name}'), navigate: true);", "kind": "function", "details": "Redirection avec SPA mode" },
+
+        // --- ATTRIBUTS (PHP 8+) ---
+        { "trigger": "lw-layout\tAttribute", "contents": "#[Layout('layouts.${1:app}')]", "kind": "keyword" },
+        { "trigger": "lw-on\tAttribute", "contents": "#[On('${1:event-name}')]\npublic function ${2:handle}()\n{\n\t$0\n}", "kind": "snippet", "details": "Écouteur d'événement" },
+        { "trigger": "lw-rule\tAttribute", "contents": "#[Rule(['required', '${1:min:3}'])]\npublic \\$${2:property} = '';", "kind": "snippet", "details": "Validation en temps réel" },
+        { "trigger": "lw-computed\tAttribute", "contents": "#[Computed]\npublic function ${1:property}(): ${2:string}\n{\n\treturn $0;\n}", "kind": "snippet", "details": "Propriété calculée (Mise en cache)" }
+    ]
+}

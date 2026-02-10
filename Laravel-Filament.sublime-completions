@@ -1,0 +1,24 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- FORM BUILDER ---
+        { "trigger": "f-text\tFilament", "contents": "Forms\\Components\\TextInput::make('${1:name}')\n\t->${2:required}()\n\t->${3:maxLength(255)},", "kind": "function", "details": "Champ texte" },
+        { "trigger": "f-select\tFilament", "contents": "Forms\\Components\\Select::make('${1:user_id}')\n\t->relationship('${2:user}', '${3:name}')\n\t->searchable()\n\t->preload(),", "kind": "function", "details": "Select avec relation" },
+        { "trigger": "f-toggle\tFilament", "contents": "Forms\\Components\\Toggle::make('${1:is_active}')\n\t->label('${2:Actif}')\n\t->default(true),", "kind": "function" },
+        { "trigger": "f-rich\tFilament", "contents": "Forms\\Components\\RichEditor::make('${1:content}')\n\t->columnSpanFull(),", "kind": "function" },
+        { "trigger": "f-date\tFilament", "contents": "Forms\\Components\\DateTimePicker::make('${1:published_at}'),", "kind": "function" },
+
+        // --- TABLE BUILDER ---
+        { "trigger": "t-text\tFilament", "contents": "Tables\\Columns\\TextColumn::make('${1:name}')\n\t->searchable()\n\t->sortable(),", "kind": "function", "details": "Colonne texte" },
+        { "trigger": "t-image\tFilament", "contents": "Tables\\Columns\\ImageColumn::make('${1:avatar}')\n\t->circular(),", "kind": "function" },
+        { "trigger": "t-icon\tFilament", "contents": "Tables\\Columns\\IconColumn::make('${1:is_visible}')\n\t->boolean(),", "kind": "function" },
+        { "trigger": "t-badge\tFilament", "contents": "Tables\\Columns\\TextColumn::make('${1:status}')\n\t->badge()\n\t->color(fn (string \\$state): string => match (\\$state) {\n\t\t'${2:draft}' => 'gray',\n\t\t'${3:published}' => 'success',\n\t}),", "kind": "snippet", "details": "Colonne Badge colorée" },
+
+        // --- ACTIONS & NOTIFICATIONS ---
+        { "trigger": "f-notify\tFilament", "contents": "Notification::make()\n\t->title('${1:Sauvegardé}')\n\t->success()\n\t->send();", "kind": "function", "details": "Notification toast" },
+        { "trigger": "f-action\tFilament", "contents": "Tables\\Actions\\Action::make('${1:delete}')\n\t->action(fn () => \\$this->record->delete())\n\t->requiresConfirmation()\n\t->color('danger'),", "kind": "snippet" },
+
+        // --- LAYOUT ---
+        { "trigger": "f-section\tFilament", "contents": "Forms\\Components\\Section::make('${1:Détails}')\n\t->description('${2:Informations principales}')\n\t->schema([\n\t\t$0\n\t])->columns(${3:2}),", "kind": "snippet" }
+    ]
+}

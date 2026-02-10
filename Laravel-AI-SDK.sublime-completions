@@ -1,0 +1,25 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- GÉNÉRATION DE TEXTE (AI::) ---
+        { "trigger": "AI::generate\tAI", "contents": "AI::generate('${1:Votre prompt ici}');", "kind": "function", "details": "Génère une réponse textuelle simple" },
+        { "trigger": "AI::withModel\tAI", "contents": "AI::withModel('${1:gpt-4o}')->generate('${2:Prompt}');", "kind": "snippet", "details": "Spécifie le modèle à utiliser" },
+        { "trigger": "AI::systemMessage\tAI", "contents": "AI::systemMessage('${1:Tu es un assistant expert en Laravel.}')\n\t->generate('${2:Prompt}');", "kind": "snippet", "details": "Définit le contexte système" },
+
+        // --- SORTIE STRUCTURÉE (JSON) ---
+        { "trigger": "AI::withSchema\tAI", "contents": "AI::withSchema([\n\t'${1:key}' => '${2:string}',\n])->generate('${3:Prompt}');", "kind": "snippet", "details": "Force l'IA à répondre en JSON structuré" },
+
+        // --- CHAT & CONVERSATIONS ---
+        { "trigger": "AI::chat\tAI", "contents": "AI::chat([\n\t['role' => 'user', 'content' => '${1:Hello !}'],\n]);", "kind": "snippet", "details": "Gère un historique de conversation" },
+
+        // --- VECTORISATION & EMBEDDINGS ---
+        { "trigger": "AI::embed\tAI", "contents": "AI::embed('${1:Texte à vectoriser}');", "kind": "function", "details": "Génère des embeddings pour la recherche sémantique" },
+        { "trigger": "AI::embedMany\tAI", "contents": "AI::embedMany([\n\t'${1:Premier texte}',\n\t'${2:Deuxième texte}',\n]);", "kind": "function" },
+
+        // --- AGENTS & TOOLS ---
+        { "trigger": "AI::withTools\tAI", "contents": "AI::withTools([\n\t'${1:search_web}',\n])->generate('${2:Prompt}');", "kind": "snippet", "details": "Donne accès à des outils (Function Calling)" },
+
+        // --- CONFIG & UTILS ---
+        { "trigger": "AI::moderate\tAI", "contents": "AI::moderate('${1:Contenu à vérifier}');", "kind": "function", "details": "Vérifie si le contenu respecte les règles de sécurité" }
+    ]
+}

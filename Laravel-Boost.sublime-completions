@@ -1,0 +1,40 @@
+{
+    "scope": "source.php, text.html.basic, text.plain",
+    "completions": [
+        // --- COMMANDES ARTISAN BOOST ---
+        { 
+            "trigger": "boost:install\tArtisan", 
+            "contents": "php artisan boost:install", 
+            "kind": "keyword", 
+            "details": "Installe les guidelines et skills pour l'IA (Cursor, Claude...)" 
+        },
+        { 
+            "trigger": "boost:update\tArtisan", 
+            "contents": "php artisan boost:update", 
+            "kind": "keyword", 
+            "details": "Met à jour les ressources Boost selon tes packages" 
+        },
+        { 
+            "trigger": "boost:mcp\tArtisan", 
+            "contents": "php artisan boost:mcp", 
+            "kind": "keyword", 
+            "details": "Lance le serveur MCP (Model Context Protocol)" 
+        },
+
+        // --- EXTENSIONS BOOST (AppServiceProvider) ---
+        { 
+            "trigger": "boost-register\tBoost", 
+            "contents": "Boost::registerAgent('${1:agent_name}', ${2:AgentClass}::class);", 
+            "kind": "function", 
+            "details": "Enregistre un agent IA personnalisé" 
+        },
+
+        // --- STRUCTURE IA (Fichiers .ai) ---
+        { 
+            "trigger": "boost-skill\tAI", 
+            "contents": "---\nname: ${1:skill-name}\ndescription: ${2:Build and work with...}\n---\n\n# ${3:Title}\n\n$0", 
+            "kind": "snippet", 
+            "details": "Nouveau fichier de compétence (.ai/skills/)" 
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "auto_complete_triggers": [
+        { "selector": "text.html, text.plain", "characters": "@" },
+        { "selector": "source.php", "characters": "l-" },
+        { "selector": "source.php", "characters": ":" },
+        { "selector": "source.php", "characters": ">" },
+        { "selector": "source.php", "characters": "-" }, // Pour déclencher sur ->
+    ]
+}

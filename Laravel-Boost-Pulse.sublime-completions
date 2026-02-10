@@ -1,0 +1,17 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- LARAVEL PULSE (Monitoring) ---
+        { "trigger": "pulse-user\tPulse", "contents": "use Laravel\\Pulse\\Facades\\Pulse;\n\nPulse::user(fn (\\$user) => [\n\t'name' => \\$user->name,\n\t'extra' => \\$user->${1:team}->name,\n]);", "kind": "snippet", "details": "Personnalise les utilisateurs dans Pulse" },
+        { "trigger": "pulse-record\tPulse", "contents": "Pulse::record('${1:type}', '${2:key}', ${3:value})->${4:avg}();", "kind": "function", "details": "Enregistre une métrique personnalisée" },
+
+        // --- OPTIMISATION & PERFORMANCE ---
+        { "trigger": "boost-cache\tPerf", "contents": "return cache()->remember('${1:key}', now()->addHours(${2:24}), function () {\n\treturn $0;\n});", "kind": "snippet", "details": "Cache de performance (Remember)" },
+        { "trigger": "boost-lazy\tPerf", "contents": "Model::preventLazyLoading(! app()->isProduction());", "kind": "function", "details": "Bloque le N+1 en dev (AppServiceProvider)" },
+        { "trigger": "boost-chunk\tPerf", "contents": "${1:Model}::chunk(${2:100}, function (\\$${3:items}) {\n\tforeach (\\$${3:items} as \\$${4:item}) {\n\t\t$0\n\t}\n});", "kind": "snippet", "details": "Traite des milliers de lignes sans saturer la RAM" },
+
+        // --- ARTISAN BOOST COMMANDS ---
+        { "trigger": "art-optimize\tArtisan", "contents": "php artisan optimize", "kind": "keyword", "details": "Cache config, routes et files" },
+        { "trigger": "art-pulse-check\tArtisan", "contents": "php artisan pulse:check", "kind": "keyword", "details": "Lance le serveur de monitoring Pulse" }
+    ]
+}

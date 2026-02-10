@@ -1,0 +1,15 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- REQUEST ---
+        { "trigger": "request_all\tRequest", "contents": "\\$request->all()", "kind": "function" },
+        { "trigger": "request_input\tRequest", "contents": "\\$request->input('${1:name}', '${2:default}')", "kind": "function" },
+        { "trigger": "request_has\tRequest", "contents": "\\$request->has('${1:name}')", "kind": "function" },
+        { "trigger": "request_file\tRequest", "contents": "\\$request->file('${1:image}')", "kind": "function" },
+
+        // --- URL & ROUTES ---
+        { "trigger": "route\tHelper", "contents": "route('${1:name}', [${2:params}])", "kind": "function", "details": "Génère une URL pour une route nommée" },
+        { "trigger": "url_current\tHelper", "contents": "url()->current()", "kind": "function" },
+        { "trigger": "url_previous\tHelper", "contents": "url()->previous()", "kind": "function" }
+    ]
+}

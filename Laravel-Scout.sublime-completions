@@ -1,0 +1,44 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- RECHERCHE ---
+        { 
+            "trigger": "scout-search\tScout", 
+            "contents": "${1:Model}::search('${2:query}')->get();", 
+            "kind": "function", 
+            "details": "Recherche full-text simple" 
+        },
+        { 
+            "trigger": "scout-paginate\tScout", 
+            "contents": "${1:Model}::search('${2:query}')->paginate(${3:15});", 
+            "kind": "function", 
+            "details": "Recherche avec pagination" 
+        },
+
+        // --- FILTRAGE & TRI ---
+        { 
+            "trigger": "scout-where\tScout", 
+            "contents": "search('${1:query}')\n\t->where('${2:user_id}', ${3:auth()->id()})\n\t->get();", 
+            "kind": "snippet", 
+            "details": "Recherche filtrée" 
+        },
+
+        // --- DANS LE MODÈLE (Trait & Config) ---
+        { 
+            "trigger": "scout-trait\tScout", 
+            "contents": "use Laravel\\Scout\\Searchable;", 
+            "kind": "keyword", 
+            "details": "Import du Trait Searchable" 
+        },
+        { 
+            "trigger": "scout-toSearchable\tScout", 
+            "contents": "public function toSearchableArray(): array\n{\n\treturn [\n\t\t'id' => \\$this->id,\n\t\t'${1:title}' => \\$this->${1:title},\n\t];\n}", 
+            "kind": "snippet", 
+            "details": "Personnalise les données indexées" 
+        },
+
+        // --- OPÉRATIONS DE MASSE ---
+        { "trigger": "scout-import\tScout", "contents": "php artisan scout:import \"App\\\\Models\\\\${1:Post}\"", "kind": "keyword", "details": "Commande de premier indexage" },
+        { "trigger": "scout-flush\tScout", "contents": "php artisan scout:flush \"App\\\\Models\\\\${1:Post}\"", "kind": "keyword", "details": "Vider l'index d'un modèle" }
+    ]
+}

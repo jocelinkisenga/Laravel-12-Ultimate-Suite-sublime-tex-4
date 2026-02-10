@@ -1,0 +1,15 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- CACHE & SESSION ---
+        { "trigger": "Cache::remember\tCache", "contents": "Cache::remember('${1:key}', ${2:3600}, function () {\n\treturn $0;\n});", "kind": "snippet", "details": "Mise en cache avec callback" },
+        { "trigger": "session_flash\tSession", "contents": "session()->flash('${1:status}', '${2:Message envoyé !}');", "kind": "function" },
+
+        // --- MAIL & NOTIFICATIONS ---
+        { "trigger": "Mail::to\tMail", "contents": "Mail::to(${1:\\$user})->send(new ${2:OrderShipped}(${3:\\$order}));", "kind": "function", "details": "Envoyer un e-mail" },
+        { "trigger": "Notification::send\tNotif", "contents": "Notification::send(${1:\\$users}, new ${2:InvoicePaid}(${3:\\$invoice}));", "kind": "function" },
+
+        // --- LOGGING ---
+        { "trigger": "Log::info\tLog", "contents": "Log::info('${1:Message}', ['${2:key}' => ${3:\\$value}]);", "kind": "function", "details": "Écrire dans laravel.log" }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "scope": "source.php",
+    "completions": [
+        // --- ROUTES ---
+        { "trigger": "l-route-get\tLaravel", "contents": "Route::get('${1:/}', [${2:Controller}::class, '${3:index}']);" },
+        { "trigger": "l-route-post\tLaravel", "contents": "Route::post('${1:/}', [${2:Controller}::class, '${3:store}']);" },
+        { "trigger": "l-route-group\tLaravel", "contents": "Route::middleware(['${1:auth}'])->group(function () {\n\t$0\n});" },
+
+        // --- CONTROLLER & RESPONSES ---
+        { "trigger": "l-view\tLaravel", "contents": "view('${1:index}', compact('$2'));" },
+        { "trigger": "l-redirect\tLaravel", "contents": "return to_route('${1:name}');" },
+        { "trigger": "l-back\tLaravel", "contents": "return back()->with('${1:success}', '${2:Message}');" },
+
+        // --- ELOQUENT (MODELS) ---
+        { "trigger": "l-model-find\tEloquent", "contents": "${1:Model}::findOrFail(${2:\\$id});" },
+        { "trigger": "l-model-create\tEloquent", "contents": "${1:Model}::create([\n\t'${2:field}' => ${3:\\$value},\n]);" },
+        { "trigger": "l-hasmany\tEloquent", "contents": "public function ${1:items}(): HasMany\n{\n\treturn \\$this->hasMany(${2:Item}::class);\n}" },
+
+        // --- MIGRATIONS ---
+        { "trigger": "l-mig-string\tMigration", "contents": "\\$table->string('${1:name}');" },
+        { "trigger": "l-mig-foreign\tMigration", "contents": "\\$table->foreignId('${1:user}_id')->constrained()->cascadeOnDelete();" }
+    ]
+}
